@@ -10,10 +10,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
             Text("Hello, world!")
+                .padding()
+                .onAppear {
+                    print("User Response")
+                    
+                    dump(try? StaticJSONMapper.decode(file: "UserStaticData",
+                                                 type: UserResponse.self))
+                    print("Single User Response")
+                    
+                    dump(try? StaticJSONMapper.decode(file: "SingleUserData",
+                                                 type: UserDetailResponse.self))
+                }
         }
         .padding()
     }
