@@ -5,13 +5,10 @@
 //  Created by aykut ipek on 12.08.2023.
 //
 
-import Foundation
-import SwiftUI
 
-
-enum Theme {
-    static let background = Color("background")
-    static let detailBackground = Color("detail-background")
-    static let text = Color("text")
-    static let pill = Color("pill")
+enum Theme: String {
+    case background = "background"
+    case detailBackground = "detail-background"
+    case text = "text"
+    case pill = "pill"
 }
