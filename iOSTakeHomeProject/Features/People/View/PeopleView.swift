@@ -12,6 +12,7 @@ struct PeopleView: View {
     
     private let columns = Array(repeating: GridItem(.flexible()), count: 2)
     @State private var users: [User] = []
+    @State private var shouldShowCreate = false
     
     var body: some View {
         NavigationStack {
@@ -20,7 +21,12 @@ struct PeopleView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(users, id: \.id) { user in
-                            PersonItemView(user: user)
+                            NavigationLink {
+                                DetailView()
+                            } label: {
+                                PersonItemView(user: user)
+                            }
+
                         }
                     }
                     .padding()
@@ -42,6 +48,9 @@ struct PeopleView: View {
                     print("DEBUG: PeopleView fetch json error: \(error.localizedDescription)")
                 }
             }
+            .sheet(isPresented: $shouldShowCreate) {
+                CreateView()
+            }
         }
     }
 }
@@ -56,7 +65,7 @@ struct PeopleView_Previews: PreviewProvider {
 private extension PeopleView {
     var create: some View {
         Button {
-            //
+            shouldShowCreate.toggle()
         } label: {
             Image(systemName: Symbols.plus.rawValue)
                 .font(.system(.headline, design: .rounded))
