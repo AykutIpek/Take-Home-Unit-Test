@@ -9,4 +9,5 @@ enum Symbols: String {
     case person = "person.2"
     case gear = "gear"
     case plus = "plus"
+    case link = "link"
 }
