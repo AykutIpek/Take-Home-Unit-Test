@@ -11,7 +11,7 @@ struct PeopleView: View {
     //MARK: - Properties
     
     private let columns = Array(repeating: GridItem(.flexible()), count: 2)
-    @State private var users: [User] = []
+    @StateObject private var viewModel = PeopleViewModel()
     @State private var shouldShowCreate = false
     
     var body: some View {
@@ -20,9 +20,9 @@ struct PeopleView: View {
                 background
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(users, id: \.id) { user in
+                        ForEach(viewModel.users, id: \.id) { user in
                             NavigationLink {
-                                DetailView()
+                                DetailView(userId: user.id)
                             } label: {
                                 PersonItemView(user: user)
                             }
@@ -40,15 +40,7 @@ struct PeopleView: View {
                 }
             }
             .onAppear {
-                NetworkingManager.shared.request("https://reqres.in/api/users",
-                                                 type: UserResponse.self) { res in
-                    switch res {
-                    case .success(let response):
-                        users = response.data
-                    case .failure(let error):
-                        print("DEBUG: Fetch json error in people view\(error.localizedDescription)")
-                    }
-                }
+                viewModel.fetchUser()
             }
             .sheet(isPresented: $shouldShowCreate) {
                 CreateView()

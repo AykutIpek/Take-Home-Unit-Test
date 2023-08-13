@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateView: View {
     @Environment (\.dismiss) private var dismiss
+    @StateObject private var viewModel = CreateViewModel()
     
     var body: some View {
         NavigationStack {
@@ -51,21 +52,21 @@ private extension CreateView {
     }
     
     var firstName: some View {
-        TextField("First Name", text: .constant(""))
+        TextField("First Name", text: $viewModel.person.firstName)
     }
     
     var lastName: some View {
-        TextField("Last Name", text: .constant(""))
+        TextField("Last Name", text: $viewModel.person.lastName)
     }
     
     var job: some View {
-        TextField("Job", text: .constant(""))
+        TextField("Job", text: $viewModel.person.job)
     }
     
     var submit: some View {
         Button("Submit") {
             // TODO: - Handle action
-            
+            viewModel.create()
         }
     }
 }
