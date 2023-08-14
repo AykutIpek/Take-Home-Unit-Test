@@ -21,7 +21,7 @@ struct CreateView: View {
                     submit
                 }
             }
-            
+            .disabled(viewModel.state == .submitting)
             .navigationTitle("Create")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -31,6 +31,11 @@ struct CreateView: View {
             .onChange(of: viewModel.state) { formState in
                 if formState == .successful {
                     dismiss()
+                }
+            }
+            .overlay {
+                if viewModel.state == .submitting {
+                    ProgressView()
                 }
             }
         }

@@ -18,18 +18,25 @@ struct PeopleView: View {
         NavigationStack {
             ZStack {
                 background
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(viewModel.users, id: \.id) { user in
-                            NavigationLink {
-                                DetailView(userId: user.id)
-                            } label: {
-                                PersonItemView(user: user)
-                            }
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .mint))
+                            .scaleEffect(2.0, anchor: .center)
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(viewModel.users, id: \.id) { user in
+                                NavigationLink {
+                                    DetailView(userId: user.id)
+                                } label: {
+                                    PersonItemView(user: user)
+                                }
 
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
             .navigationTitle("People")
@@ -70,6 +77,7 @@ private extension PeopleView {
                 .font(.system(.headline, design: .rounded))
                 .fontWeight(.bold)
         }
+        .disabled(viewModel.isLoading)
     }
     
     var background: some View {

@@ -16,6 +16,8 @@ final class CreateViewModel: ObservableObject {
     @Published private(set) var error: NetworkingManager.NetworkingError?
     
     func create() {
+        state = .submitting
+        
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
         let data = try? encoder.encode(person)
@@ -42,5 +44,6 @@ extension CreateViewModel {
     enum SubmissionState {
         case unsuccessful
         case successful
+        case submitting
     }
 }
