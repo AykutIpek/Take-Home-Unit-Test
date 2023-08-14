@@ -17,6 +17,12 @@ struct iOSTakeHomeProjectApp: App {
                         Image(systemName: Symbols.person.rawValue)
                         Text("Home")
                     }
+                
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: Symbols.gear.rawValue)
+                        Text("Settings")
+                    }
             }
         }
     }

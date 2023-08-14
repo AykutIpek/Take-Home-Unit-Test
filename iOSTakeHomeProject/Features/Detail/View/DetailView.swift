@@ -8,43 +8,58 @@
 import SwiftUI
 
 struct DetailView: View {
-    @State private var userInfo: UserDetailResponse?
+    
+    let userId: Int
+    @StateObject private var viewModel = DetailViewModel()
+//    @State private var userInfo: UserDetailResponse?
+    
     var body: some View {
         ZStack {
             background
             
-            ScrollView {
-                VStack(alignment: .leading, spacing: 18) {
-                    
-                    avatar
-                    
-                    Group {
-                        general
-                        link
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 18) {
+                        
+                        avatar
+                        
+                        Group {
+                            general
+                            link
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 18)
+                        .background(Color(Theme.detailBackground.rawValue), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 18)
-                    .background(Color(Theme.detailBackground.rawValue), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .padding()
                 }
-                .padding()
-            }
+            }  
         }
         .navigationTitle("Details")
         .onAppear {
-            do {
-                userInfo = try StaticJSONMapper.decode(file: "SingleUserData",
-                                                      type: UserDetailResponse.self)
-            } catch {
-                print("DEBUG: Single User data doesn't fetch in Detail View: \(error.localizedDescription)")
+            Task {
+                await viewModel.fetchDetails(for: userId)
+            }
+        }
+        .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
+            Button("Retry") {
+//                viewModel.fetchDetails(for: userId)
             }
         }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
+    private static var previewUserId: Int {
+        let users = try! StaticJSONMapper.decode(file: "UserStaticData",
+                                                 type: UserResponse.self)
+        return users.data.first!.id
+    }
     static var previews: some View {
         NavigationView {
-            DetailView()
+            DetailView(userId: previewUserId)
         }
     }
 }
@@ -62,7 +77,7 @@ private extension DetailView {
     
     var general: some View {
         VStack(alignment: .leading, spacing: 8) {
-            PillView(id: userInfo?.data.id ?? 0)
+            PillView(id: viewModel.userInfo?.data.id ?? 0)
             
             // View Builders
             Group {
@@ -76,7 +91,7 @@ private extension DetailView {
     
     @ViewBuilder
     var avatar: some View {
-        if let avatarAbsoluteString = userInfo?.data.avatar,
+        if let avatarAbsoluteString = viewModel.userInfo?.data.avatar,
            let avatarUrl = URL(string: avatarAbsoluteString) {
             AsyncImage(url: avatarUrl) { image in
                 image
@@ -95,9 +110,9 @@ private extension DetailView {
     @ViewBuilder
     var link: some View {
         
-        if let supportAbsoluteString = userInfo?.support.url,
+        if let supportAbsoluteString = viewModel.userInfo?.support.url,
         let supportUrl = URL(string: supportAbsoluteString),
-           let supportTxt = userInfo?.support.text {
+           let supportTxt = viewModel.userInfo?.support.text {
             Link(destination: supportUrl) {
                 
                 VStack(alignment: .leading, spacing: 8.0) {
@@ -122,7 +137,7 @@ private extension DetailView {
         Text("First Name")
             .font(.system(.body, design: .rounded))
             .fontWeight(.semibold)
-        Text(userInfo?.data.firstName ?? "-")
+        Text(viewModel.userInfo?.data.firstName ?? "-")
             .font(.system(.subheadline, design: .rounded))
         Divider()
     }
@@ -133,7 +148,7 @@ private extension DetailView {
         Text("Last Name")
             .font(.system(.body, design: .rounded))
             .fontWeight(.semibold)
-        Text(userInfo?.data.lastName ?? "-")
+        Text(viewModel.userInfo?.data.lastName ?? "-")
             .font(.system(.subheadline, design: .rounded))
         Divider()
     }
@@ -144,7 +159,7 @@ private extension DetailView {
         Text("Email")
             .font(.system(.body, design: .rounded))
             .fontWeight(.semibold)
-        Text(userInfo?.data.email ?? "-")
+        Text(viewModel.userInfo?.data.email ?? "-")
             .font(.system(.subheadline, design: .rounded))
     }
 }

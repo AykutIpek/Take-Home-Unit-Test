@@ -11,25 +11,45 @@ struct PeopleView: View {
     //MARK: - Properties
     
     private let columns = Array(repeating: GridItem(.flexible()), count: 2)
-    @State private var users: [User] = []
+    @StateObject private var viewModel = PeopleViewModel()
     @State private var shouldShowCreate = false
+    @State private var sholudShowSuccess = false
+    @State private var hasAppeared = false
     
     var body: some View {
         NavigationStack {
             ZStack {
                 background
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(users, id: \.id) { user in
-                            NavigationLink {
-                                DetailView()
-                            } label: {
-                                PersonItemView(user: user)
-                            }
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .mint))
+                            .scaleEffect(2.0, anchor: .center)
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(viewModel.users, id: \.id) { user in
+                                NavigationLink {
+                                    DetailView(userId: user.id)
+                                } label: {
+                                    PersonItemView(user: user)
+                                        .task {
+                                            if viewModel.hasReachedEnd(of: user) && !viewModel.isFetching {
+                                                await viewModel.fetchNextSetOfUsers()
+                                            }
+                                        }
+                                }
+                                
 
+                            }
+                        }
+                        .padding()
+                    }
+                    .overlay(alignment: .bottom) {
+                        if viewModel.isFetching {
+                            ProgressView()
                         }
                     }
-                    .padding()
                 }
             }
             .navigationTitle("People")
@@ -38,20 +58,43 @@ struct PeopleView: View {
                     create
                     
                 }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    refresh
+                }
             }
-            .onAppear {
-                NetworkingManager.shared.request("https://reqres.in/api/users",
-                                                 type: UserResponse.self) { res in
-                    switch res {
-                    case .success(let response):
-                        users = response.data
-                    case .failure(let error):
-                        print("DEBUG: Fetch json error in people view\(error.localizedDescription)")
-                    }
+            .task {
+                if !hasAppeared {
+                    await viewModel.fetchUser()
+                    hasAppeared = true
                 }
             }
             .sheet(isPresented: $shouldShowCreate) {
-                CreateView()
+                CreateView {
+                    haptic(.success)
+                    withAnimation(.spring().delay(0.25)) {
+                        self.sholudShowSuccess.toggle()
+                    }
+                }
+            }
+            .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
+                Button("Retry") {
+                    Task {
+                        await viewModel.fetchUser()
+                    }
+                }
+            }
+            .overlay {
+                if sholudShowSuccess {
+                    CheckmarkPopover()
+                        .transition(.scale.combined(with: .opacity))
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation(.spring()){
+                                    self.sholudShowSuccess.toggle()
+                                }
+                            }
+                        }
+                }
             }
         }
     }
@@ -65,6 +108,7 @@ struct PeopleView_Previews: PreviewProvider {
 
 
 private extension PeopleView {
+    
     var create: some View {
         Button {
             shouldShowCreate.toggle()
@@ -72,11 +116,23 @@ private extension PeopleView {
             Image(systemName: Symbols.plus.rawValue)
                 .font(.system(.headline, design: .rounded))
                 .fontWeight(.bold)
-        }
+        } 
+        .disabled(viewModel.isLoading)
     }
     
     var background: some View {
         Color(Theme.background.rawValue)
             .edgesIgnoringSafeArea(.all)
+    }
+    
+    var refresh: some View {
+        Button {
+            Task {
+                await viewModel.fetchUser()
+            }
+        } label: {
+            Image(systemName: Symbols.refresh.rawValue)
+        }
+        .disabled(viewModel.isLoading)
     }
 }
