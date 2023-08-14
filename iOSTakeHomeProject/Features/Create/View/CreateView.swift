@@ -104,7 +104,9 @@ private extension CreateView {
         Button("Submit") {
             // TODO: - Handle action
             focusedField = nil
-            viewModel.create()
+            Task {
+                await viewModel.create()
+            }
         }
     }
 }

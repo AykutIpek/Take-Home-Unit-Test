@@ -39,7 +39,9 @@ struct DetailView: View {
         }
         .navigationTitle("Details")
         .onAppear {
-            viewModel.fetchDetails(for: userId)
+            Task {
+                await viewModel.fetchDetails(for: userId)
+            }
         }
         .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
             Button("Retry") {
