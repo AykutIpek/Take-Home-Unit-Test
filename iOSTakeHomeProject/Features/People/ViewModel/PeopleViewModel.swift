@@ -16,7 +16,7 @@ final class PeopleViewModel: ObservableObject {
     
     
     func fetchUser(){
-        NetworkingManager.shared.request("https://reqres.in/api/users?delay=3", type: UserResponse.self) {[weak self] res in
+        NetworkingManager.shared.request(.people, type: UserResponse.self) {[weak self] res in
             DispatchQueue.main.async {
                 defer {
                     self?.isLoading = false
