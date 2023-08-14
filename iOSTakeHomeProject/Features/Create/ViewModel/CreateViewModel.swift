@@ -8,11 +8,12 @@
 import Foundation
 
 
-
 final class CreateViewModel: ObservableObject {
     
     @Published var person = NewPerson()
     @Published private(set) var state: SubmissionState?
+    @Published var hasError: Bool = false
+    @Published private(set) var error: NetworkingManager.NetworkingError?
     
     func create() {
         let encoder = JSONEncoder()
@@ -26,6 +27,8 @@ final class CreateViewModel: ObservableObject {
                     self?.state = .successful
                 case .failure(let err):
                     self?.state = .unsuccessful
+                    self?.hasError = true
+                    self?.error = err as? NetworkingManager.NetworkingError
                     print("DEBUG: Create viewModel err \(err.localizedDescription)")
                     break
                 }

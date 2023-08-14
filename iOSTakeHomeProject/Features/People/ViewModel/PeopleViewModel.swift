@@ -10,6 +10,8 @@ import Foundation
 
 final class PeopleViewModel: ObservableObject {
     @Published private(set) var users: [User] = []
+    @Published private(set) var error: NetworkingManager.NetworkingError?
+    @Published var hasError = false
     
     
     func fetchUser(){
@@ -19,6 +21,8 @@ final class PeopleViewModel: ObservableObject {
                 case .success(let response):
                     self?.users = response.data
                 case .failure(let error):
+                    self?.hasError = true
+                    self?.error = error as? NetworkingManager.NetworkingError
                     print("DEBUG: Fetch json error in people view\(error.localizedDescription)")
                 }
             }
