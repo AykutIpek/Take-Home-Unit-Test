@@ -33,11 +33,22 @@ struct PeopleView: View {
                                     DetailView(userId: user.id)
                                 } label: {
                                     PersonItemView(user: user)
+                                        .task {
+                                            if viewModel.hasReachedEnd(of: user) && !viewModel.isFetching {
+                                                await viewModel.fetchNextSetOfUsers()
+                                            }
+                                        }
                                 }
+                                
 
                             }
                         }
                         .padding()
+                    }
+                    .overlay(alignment: .bottom) {
+                        if viewModel.isFetching {
+                            ProgressView()
+                        }
                     }
                 }
             }
