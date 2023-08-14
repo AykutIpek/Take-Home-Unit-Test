@@ -13,6 +13,7 @@ struct PeopleView: View {
     private let columns = Array(repeating: GridItem(.flexible()), count: 2)
     @StateObject private var viewModel = PeopleViewModel()
     @State private var shouldShowCreate = false
+    @State private var sholudShowSuccess = false
     
     var body: some View {
         NavigationStack {
@@ -50,11 +51,28 @@ struct PeopleView: View {
                 viewModel.fetchUser()
             }
             .sheet(isPresented: $shouldShowCreate) {
-                CreateView()
+                CreateView {
+                    withAnimation(.spring().delay(0.25)) {
+                        self.sholudShowSuccess.toggle()
+                    }
+                }
             }
             .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
                 Button("Retry") {
                     viewModel.fetchUser()
+                }
+            }
+            .overlay {
+                if sholudShowSuccess {
+                    CheckmarkPopover()
+                        .transition(.scale.combined(with: .opacity))
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation(.spring()){
+                                    self.sholudShowSuccess.toggle()
+                                }
+                            }
+                        }
                 }
             }
         }
@@ -76,7 +94,7 @@ private extension PeopleView {
             Image(systemName: Symbols.plus.rawValue)
                 .font(.system(.headline, design: .rounded))
                 .fontWeight(.bold)
-        }
+        } 
         .disabled(viewModel.isLoading)
     }
     

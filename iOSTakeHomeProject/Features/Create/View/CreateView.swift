@@ -9,14 +9,27 @@ import SwiftUI
 
 struct CreateView: View {
     @Environment (\.dismiss) private var dismiss
+    @FocusState private var focusedField: Field?
     @StateObject private var viewModel = CreateViewModel()
+    let successfulAction: () -> Void
     
     var body: some View {
         NavigationStack {
             Form {
-                firstName
-                lastName
-                job
+                
+                Section {
+                    firstName
+                    lastName
+                    job
+                } footer: {
+                    if case .validation(let error) = viewModel.error,
+                       let errorDesc = error.errorDescription {
+                        Text(errorDesc)
+                            .foregroundStyle(.red)
+                    }
+                }
+                
+                
                 Section {
                     submit
                 }
@@ -31,6 +44,7 @@ struct CreateView: View {
             .onChange(of: viewModel.state) { formState in
                 if formState == .successful {
                     dismiss()
+                    successfulAction()
                 }
             }
             .overlay {
@@ -44,7 +58,17 @@ struct CreateView: View {
 
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateView()
+        CreateView {
+            
+        }
+    }
+}
+
+extension CreateView {
+    enum Field: Hashable {
+        case firstName
+        case lastName
+        case job
     }
 }
 
@@ -63,19 +87,23 @@ private extension CreateView {
     
     var firstName: some View {
         TextField("First Name", text: $viewModel.person.firstName)
+            .focused($focusedField, equals: .firstName)
     }
     
     var lastName: some View {
         TextField("Last Name", text: $viewModel.person.lastName)
+            .focused($focusedField, equals: .lastName)
     }
     
     var job: some View {
         TextField("Job", text: $viewModel.person.job)
+            .focused($focusedField, equals: .job)
     }
     
     var submit: some View {
         Button("Submit") {
             // TODO: - Handle action
+            focusedField = nil
             viewModel.create()
         }
     }

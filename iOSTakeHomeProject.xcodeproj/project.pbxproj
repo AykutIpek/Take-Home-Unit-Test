@@ -11,6 +11,8 @@
 		E9516F302A89700E00CCF832 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F2F2A89700E00CCF832 /* DetailViewModel.swift */; };
 		E9516F322A8978B100CCF832 /* NewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F312A8978B100CCF832 /* NewPerson.swift */; };
 		E9516F342A89792F00CCF832 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F332A89792F00CCF832 /* CreateViewModel.swift */; };
+		E97D5AC42A8A4396001D73CF /* CheckmarkPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D5AC32A8A4396001D73CF /* CheckmarkPopover.swift */; };
+		E97D5AC72A8A4DC0001D73CF /* CreateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D5AC62A8A4DC0001D73CF /* CreateValidator.swift */; };
 		E9A2B44B2A87B92000B81873 /* iOSTakeHomeProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B44A2A87B92000B81873 /* iOSTakeHomeProjectApp.swift */; };
 		E9A2B44F2A87B92100B81873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B44E2A87B92100B81873 /* Assets.xcassets */; };
 		E9A2B4522A87B92100B81873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B4512A87B92100B81873 /* Preview Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		E9516F2F2A89700E00CCF832 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E9516F312A8978B100CCF832 /* NewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPerson.swift; sourceTree = "<group>"; };
 		E9516F332A89792F00CCF832 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
+		E97D5AC32A8A4396001D73CF /* CheckmarkPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkPopover.swift; sourceTree = "<group>"; };
+		E97D5AC62A8A4DC0001D73CF /* CreateValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateValidator.swift; sourceTree = "<group>"; };
 		E9A2B4472A87B92000B81873 /* iOSTakeHomeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTakeHomeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A2B44A2A87B92000B81873 /* iOSTakeHomeProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTakeHomeProjectApp.swift; sourceTree = "<group>"; };
 		E9A2B44E2A87B92100B81873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E97D5AC52A8A4DAF001D73CF /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				E97D5AC62A8A4DC0001D73CF /* CreateValidator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
 		E9A2B43E2A87B91F00B81873 = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +220,7 @@
 		E9A2B47C2A87C68700B81873 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				E97D5AC52A8A4DAF001D73CF /* Validator */,
 				E9A2B4882A87C73100B81873 /* Model */,
 				E9A2B4872A87C72C00B81873 /* View */,
 				E9A2B4862A87C72900B81873 /* ViewModel */,
@@ -342,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				E9A2B49E2A87F94500B81873 /* PillView.swift */,
+				E97D5AC32A8A4396001D73CF /* CheckmarkPopover.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -499,8 +513,10 @@
 				E9A2B4912A87CCB400B81873 /* UserResponse.swift in Sources */,
 				E9A2B49C2A87EBD400B81873 /* PersonItemView.swift in Sources */,
 				E9516F322A8978B100CCF832 /* NewPerson.swift in Sources */,
+				E97D5AC42A8A4396001D73CF /* CheckmarkPopover.swift in Sources */,
 				E9516F2E2A89670700CCF832 /* PeopleViewModel.swift in Sources */,
 				E9E965A22A891A7700ECADEE /* CreateView.swift in Sources */,
+				E97D5AC72A8A4DC0001D73CF /* CreateValidator.swift in Sources */,
 				E9516F302A89700E00CCF832 /* DetailViewModel.swift in Sources */,
 				E9A2B4952A87CE8B00B81873 /* Models.swift in Sources */,
 			);

@@ -10,4 +10,5 @@ enum Symbols: String {
     case gear = "gear"
     case plus = "plus"
     case link = "link"
+    case checkmark = "checkmark"
 }
