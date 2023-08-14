@@ -11,4 +11,5 @@ enum Symbols: String {
     case plus = "plus"
     case link = "link"
     case checkmark = "checkmark"
+    case refresh = "arrow.clockwise"
 }
