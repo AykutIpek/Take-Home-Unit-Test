@@ -37,6 +37,7 @@
 		E9A2B4A12A8811AD00B81873 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B4A02A8811AD00B81873 /* DetailView.swift */; };
 		E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */; };
 		E9DCDF2F2A8E46490080E6E4 /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */; };
+		E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */; };
 		E9E965A22A891A7700ECADEE /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A12A891A7700ECADEE /* CreateView.swift */; };
 		E9E965A52A8928A200ECADEE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A42A8928A200ECADEE /* NetworkingManager.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		E9A2B4A02A8811AD00B81873 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEndpointTests.swift; sourceTree = "<group>"; };
 		E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
+		E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
 		E9E965A12A891A7700ECADEE /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		E9E965A42A8928A200ECADEE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -411,6 +413,7 @@
 		E9DCDF292A8E21250080E6E4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E9DCDF302A8E4D140080E6E4 /* NetworkingManager */,
 				E9DCDF2D2A8E46320080E6E4 /* Mocks */,
 				E9DCDF2A2A8E21470080E6E4 /* Endpoint */,
 			);
@@ -431,6 +434,14 @@
 				E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E9DCDF302A8E4D140080E6E4 /* NetworkingManager */ = {
+			isa = PBXGroup;
+			children = (
+				E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */,
+			);
+			path = NetworkingManager;
 			sourceTree = "<group>";
 		};
 		E9E965A32A89288F00ECADEE /* API */ = {
@@ -605,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */,
+				E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */,
 				E9A2B45C2A87B92100B81873 /* iOSTakeHomeProjectTests.swift in Sources */,
 				E9DCDF2F2A8E46490080E6E4 /* MockURLSessionProtocol.swift in Sources */,
 			);
