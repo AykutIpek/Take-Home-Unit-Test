@@ -38,6 +38,8 @@
 		E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */; };
 		E9DCDF2F2A8E46490080E6E4 /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */; };
 		E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */; };
+		E9DCDF352A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF342A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift */; };
+		E9DCDF372A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF362A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift */; };
 		E9E965A22A891A7700ECADEE /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A12A891A7700ECADEE /* CreateView.swift */; };
 		E9E965A52A8928A200ECADEE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A42A8928A200ECADEE /* NetworkingManager.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,8 @@
 		E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEndpointTests.swift; sourceTree = "<group>"; };
 		E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
 		E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
+		E9DCDF342A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModelSuccessTests.swift; sourceTree = "<group>"; };
+		E9DCDF362A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerUserResponseSuccessMock.swift; sourceTree = "<group>"; };
 		E9E965A12A891A7700ECADEE /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		E9E965A42A8928A200ECADEE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +195,7 @@
 		E9A2B45A2A87B92100B81873 /* iOSTakeHomeProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				E9DCDF332A8E75DE0080E6E4 /* People */,
 				E9DCDF292A8E21250080E6E4 /* Networking */,
 				E9DCDF282A8E211F0080E6E4 /* Form */,
 				E9DCDF272A8E21170080E6E4 /* Mapper */,
@@ -432,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */,
+				E9DCDF362A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -442,6 +448,14 @@
 				E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */,
 			);
 			path = NetworkingManager;
+			sourceTree = "<group>";
+		};
+		E9DCDF332A8E75DE0080E6E4 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				E9DCDF342A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift */,
+			);
+			path = People;
 			sourceTree = "<group>";
 		};
 		E9E965A32A89288F00ECADEE /* API */ = {
@@ -618,6 +632,8 @@
 				E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */,
 				E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */,
 				E9A2B45C2A87B92100B81873 /* iOSTakeHomeProjectTests.swift in Sources */,
+				E9DCDF372A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift in Sources */,
+				E9DCDF352A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift in Sources */,
 				E9DCDF2F2A8E46490080E6E4 /* MockURLSessionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

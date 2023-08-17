@@ -7,9 +7,12 @@
 
 import Foundation
 
+protocol NetworkingManagerProtocol {
+    func request<T: Codable>(session: URLSession, _ endpoint: EndPoint, type: T.Type) async throws -> T
+    func request(session: URLSession, _ endpoint: EndPoint) async throws
+}
 
-
-final class NetworkingManager {
+final class NetworkingManager: NetworkingManagerProtocol {
     static let shared = NetworkingManager()
     
     private init(){}
