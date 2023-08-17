@@ -57,4 +57,38 @@ final class PeopleViewModelSuccessTests: XCTestCase {
         
         XCTAssertEqual(viewModel.page, 2, "The page should be 2")
     }
+    
+    func test_with_reset_called_values_is_reset() async throws {
+        
+        defer {
+            XCTAssertEqual(viewModel.users.count, 6, "The should be 6 users within our data array")
+            XCTAssertEqual(viewModel.page, 1, "The page should be 1")
+            XCTAssertEqual(viewModel.totalPages, 2, "The total page should be 2")
+            XCTAssertEqual(viewModel.viewState, .finished, "The view model view state shold be finished")
+            XCTAssertFalse(viewModel.isLoading, "The view model shouldn't be loading any data")
+
+        }
+        
+        await viewModel.fetchUser()
+        XCTAssertEqual(viewModel.users.count, 6, "The should be 6 users within our data array")
+
+        await viewModel.fetchNextSetOfUsers()
+        
+        XCTAssertEqual(viewModel.users.count, 12, "The should be 12 users within our data array")
+        XCTAssertEqual(viewModel.page, 2, "The page should be 2")
+        
+        await viewModel.fetchUser()
+        
+
+    }
+    
+    func test_with_last_user_func_returns_true() async throws {
+        await viewModel.fetchUser()
+        
+        let userData = try! StaticJSONMapper.decode(file: "UserStaticData", type: UserResponse.self)
+        
+        let hasReachedEnd = viewModel.hasReachedEnd(of: userData.data.last!)
+        
+        XCTAssertTrue(hasReachedEnd, "The last user should match")
+    }
 }

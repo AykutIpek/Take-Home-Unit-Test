@@ -16,7 +16,7 @@ final class PeopleViewModel: ObservableObject {
     @Published var hasError = false
     
     private(set) var page = 1
-    private var totalPages: Int?
+    private(set) var totalPages: Int?
     private let networkingManager: NetworkingManagerProtocol!
     
     var isLoading: Bool {
