@@ -9,14 +9,15 @@ import Foundation
 
 @MainActor
 final class PeopleViewModel: ObservableObject {
-    
+    //MARK: - Properties
     @Published private(set) var users: [User] = []
     @Published private(set) var error: NetworkingManager.NetworkingError?
     @Published private(set) var viewState: ViewState?
     @Published var hasError = false
     
-    private var page = 1
-    private var totalPages: Int?
+    private(set) var page = 1
+    private(set) var totalPages: Int?
+    private let networkingManager: NetworkingManagerProtocol!
     
     var isLoading: Bool {
         viewState == .loading
@@ -26,13 +27,20 @@ final class PeopleViewModel: ObservableObject {
         viewState == .fetching
     }
     
+    //MARK: - LifeCycle
+    init(networkingManager: NetworkingManagerProtocol = NetworkingManager.shared) {
+        self.networkingManager = networkingManager
+    }
+    
+    //MARK: - Functions
+    @MainActor
     func fetchUser() async {
         reset()
         viewState = .loading
         defer { viewState = .finished }
         
         do {
-            let response = try await NetworkingManager.shared.request(.people(page: page), type: UserResponse.self)
+            let response = try await networkingManager.request(session: .shared, .people(page: page), type: UserResponse.self)
             self.totalPages = response.totalPages
             self.users = response.data
         } catch {
@@ -56,7 +64,7 @@ final class PeopleViewModel: ObservableObject {
         page += 1
         
         do {
-            let response = try await NetworkingManager.shared.request(.people(page: page), type: UserResponse.self)
+            let response = try await networkingManager.request(session: .shared, .people(page: page), type: UserResponse.self)
             self.totalPages = response.totalPages
             self.users += response.data
         } catch {
