@@ -35,6 +35,8 @@
 		E9A2B49C2A87EBD400B81873 /* PersonItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B49B2A87EBD400B81873 /* PersonItemView.swift */; };
 		E9A2B49F2A87F94500B81873 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B49E2A87F94500B81873 /* PillView.swift */; };
 		E9A2B4A12A8811AD00B81873 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B4A02A8811AD00B81873 /* DetailView.swift */; };
+		E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */; };
+		E9DCDF2F2A8E46490080E6E4 /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */; };
 		E9E965A22A891A7700ECADEE /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A12A891A7700ECADEE /* CreateView.swift */; };
 		E9E965A52A8928A200ECADEE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A42A8928A200ECADEE /* NetworkingManager.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,8 @@
 		E9A2B49B2A87EBD400B81873 /* PersonItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonItemView.swift; sourceTree = "<group>"; };
 		E9A2B49E2A87F94500B81873 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		E9A2B4A02A8811AD00B81873 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEndpointTests.swift; sourceTree = "<group>"; };
+		E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
 		E9E965A12A891A7700ECADEE /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		E9E965A42A8928A200ECADEE /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +189,9 @@
 		E9A2B45A2A87B92100B81873 /* iOSTakeHomeProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				E9DCDF292A8E21250080E6E4 /* Networking */,
+				E9DCDF282A8E211F0080E6E4 /* Form */,
+				E9DCDF272A8E21170080E6E4 /* Mapper */,
 				E9A2B45B2A87B92100B81873 /* iOSTakeHomeProjectTests.swift */,
 			);
 			path = iOSTakeHomeProjectTests;
@@ -387,6 +394,45 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E9DCDF272A8E21170080E6E4 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		E9DCDF282A8E211F0080E6E4 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		E9DCDF292A8E21250080E6E4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E9DCDF2D2A8E46320080E6E4 /* Mocks */,
+				E9DCDF2A2A8E21470080E6E4 /* Endpoint */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E9DCDF2A2A8E21470080E6E4 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		E9DCDF2D2A8E46320080E6E4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		E9E965A32A89288F00ECADEE /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,7 +604,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */,
 				E9A2B45C2A87B92100B81873 /* iOSTakeHomeProjectTests.swift in Sources */,
+				E9DCDF2F2A8E46490080E6E4 /* MockURLSessionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
