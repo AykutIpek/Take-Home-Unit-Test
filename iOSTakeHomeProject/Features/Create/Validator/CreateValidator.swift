@@ -7,9 +7,11 @@
 
 import Foundation
 
+protocol CreateValidatorProtocol {
+    func validate(_ person: NewPerson) throws
+}
 
-
-struct CreateValidator {
+struct CreateValidator: CreateValidatorProtocol {
     
     func validate(_ person: NewPerson) throws {
         if person.firstName.isEmpty {
@@ -24,9 +26,8 @@ struct CreateValidator {
             throw CreateValidotorError.invalidJob
         }
     }
+    
 }
-
-
 
 extension CreateValidator {
     enum CreateValidotorError: LocalizedError {
