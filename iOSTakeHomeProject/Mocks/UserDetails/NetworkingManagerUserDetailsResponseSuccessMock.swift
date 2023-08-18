@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import iOSTakeHomeProject
+
 
 
 final class NetworkingManagerUserDetailsResponseSuccessMock: NetworkingManagerProtocol {

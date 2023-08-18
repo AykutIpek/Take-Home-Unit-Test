@@ -12,7 +12,8 @@ import Foundation
 struct UITestingHelper {
     
     static var isUITesting: Bool {
-        ProcessInfo.processInfo.arguments.contains("-ui-testing")
+//        ProcessInfo.processInfo.arguments.contains("-ui-testing")
+        return true
     }
     
 }
