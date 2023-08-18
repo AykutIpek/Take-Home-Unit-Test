@@ -16,6 +16,20 @@ struct PeopleView: View {
     @State private var sholudShowSuccess = false
     @State private var hasAppeared = false
     
+    init() {
+        #if DEBUG
+        
+        if UITestingHelper.isUITesting {
+            let mock: NetworkingManagerProtocol = UITestingHelper.isNetworkingSuccessfuly ? NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
+            _viewModel = StateObject(wrappedValue: PeopleViewModel(networkingManager: mock))
+        } else {
+            _viewModel = StateObject(wrappedValue: PeopleViewModel())
+        }
+        #else
+        _viewModel = StateObject(wrappedValue: PeopleViewModel())
+        #endif
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -33,6 +47,7 @@ struct PeopleView: View {
                                     DetailView(userId: user.id)
                                 } label: {
                                     PersonItemView(user: user)
+                                        .accessibilityIdentifier("item_\(user.id)")
                                         .task {
                                             if viewModel.hasReachedEnd(of: user) && !viewModel.isFetching {
                                                 await viewModel.fetchNextSetOfUsers()
@@ -44,6 +59,7 @@ struct PeopleView: View {
                             }
                         }
                         .padding()
+                        .accessibilityIdentifier("peopleGrid")
                     }
                     .overlay(alignment: .bottom) {
                         if viewModel.isFetching {

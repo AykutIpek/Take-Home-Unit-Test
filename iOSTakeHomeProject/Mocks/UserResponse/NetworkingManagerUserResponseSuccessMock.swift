@@ -8,7 +8,7 @@
 import Foundation
 @testable import iOSTakeHomeProject
 
-final class NetworkingManagerUserResponseSuccessMock: NetworkingManagerProtocol {
+class NetworkingManagerUserResponseSuccessMock: NetworkingManagerProtocol {
     func request<T>(session: URLSession, _ endpoint: iOSTakeHomeProject.EndPoint, type: T.Type) async throws -> T where T : Decodable, T : Encodable {
         return try StaticJSONMapper.decode(file: "UserStaticData", type: UserResponse.self) as! T
     }

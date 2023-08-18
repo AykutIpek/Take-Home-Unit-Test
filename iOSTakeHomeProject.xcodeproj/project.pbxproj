@@ -14,6 +14,7 @@
 		E9292BA52A8FB24900774DBA /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */; };
 		E9292BA72A8FB29E00774DBA /* CreateValidatorFailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E972913F2A8F895B0066360A /* CreateValidatorFailureMock.swift */; };
 		E9292BA82A8FB29E00774DBA /* CraeteValidatorSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E972913B2A8F87050066360A /* CraeteValidatorSuccessMock.swift */; };
+		E9292BAA2A8FBCCA00774DBA /* PeopleFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9292BA92A8FBCCA00774DBA /* PeopleFailureUITests.swift */; };
 		E9516F2E2A89670700CCF832 /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F2D2A89670700CCF832 /* PeopleViewModel.swift */; };
 		E9516F302A89700E00CCF832 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F2F2A89700E00CCF832 /* DetailViewModel.swift */; };
 		E9516F322A8978B100CCF832 /* NewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F312A8978B100CCF832 /* NewPerson.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E9292BA92A8FBCCA00774DBA /* PeopleFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleFailureUITests.swift; sourceTree = "<group>"; };
 		E9516F2D2A89670700CCF832 /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
 		E9516F2F2A89700E00CCF832 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E9516F312A8978B100CCF832 /* NewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPerson.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				E972914A2A8F9A480066360A /* PeopleScreenUITests.swift */,
+				E9292BA92A8FBCCA00774DBA /* PeopleFailureUITests.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E972914B2A8F9A480066360A /* PeopleScreenUITests.swift in Sources */,
+				E9292BAA2A8FBCCA00774DBA /* PeopleFailureUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

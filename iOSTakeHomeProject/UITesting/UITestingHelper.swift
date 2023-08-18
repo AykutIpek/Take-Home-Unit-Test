@@ -12,8 +12,12 @@ import Foundation
 struct UITestingHelper {
     
     static var isUITesting: Bool {
-//        ProcessInfo.processInfo.arguments.contains("-ui-testing")
-        return true
+        ProcessInfo.processInfo.arguments.contains("-ui-testing")
+//        return true
+    }
+    
+    static var isNetworkingSuccessfuly: Bool {
+        ProcessInfo.processInfo.environment["-networking-success"] == "1"
     }
     
 }

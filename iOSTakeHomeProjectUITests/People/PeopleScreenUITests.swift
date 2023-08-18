@@ -23,7 +23,30 @@ final class PeopleScreenUITests: XCTestCase {
         app = nil
     }
     
-    func test_dummy() {
-        XCTFail()
+    func test_grid_has_correct_number_of_items_when_screen_loads() {
+        let grid  = app.otherElements["peopleGrid"]
+        XCTAssertTrue(grid.waitForExistence(timeout: 5), "The people lazygrid should be visible")
+
+        let predicate = NSPredicate(format: "identifier CONTAINS 'item_'")
+        let gridItems = grid.buttons.otherElements.containing(predicate)
+        XCTAssertEqual(gridItems.count, 6, "There should be 6 items on the screen")
+
+        XCTAssertTrue(gridItems.staticTexts["#1"].exists)
+        XCTAssertTrue(gridItems.staticTexts["George Bluth"].exists)
+
+        XCTAssertTrue(gridItems.staticTexts["#2"].exists)
+        XCTAssertTrue(gridItems.staticTexts["Janet Weaver"].exists)
+
+        XCTAssertTrue(gridItems.staticTexts["#3"].exists)
+        XCTAssertTrue(gridItems.staticTexts["Emma Wong"].exists)
+
+        XCTAssertTrue(gridItems.staticTexts["#4"].exists)
+        XCTAssertTrue(gridItems.staticTexts["Eve Holt"].exists)
+
+        XCTAssertTrue(gridItems.staticTexts["#5"].exists)
+        XCTAssertTrue(gridItems.staticTexts["Janet Weaver"].exists)
+
+        XCTAssertTrue(gridItems.staticTexts["#6"].exists)
+        XCTAssertTrue(gridItems.staticTexts["Charles Ramos"].exists)
     }
 }
