@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import iOSTakeHomeProject
+
 
 struct CreateValidatorSuccessMock: CreateValidatorProtocol {
     func validate(_ person: iOSTakeHomeProject.NewPerson) throws {

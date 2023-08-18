@@ -6,13 +6,15 @@
 //
 
 import Foundation
-@testable import iOSTakeHomeProject
 
 
+#if DEBUG
 struct CreateValidatorFailureMock: CreateValidatorProtocol {
     func validate(_ person: iOSTakeHomeProject.NewPerson) throws {
         throw CreateValidator.CreateValidotorError.invalidFirstName
     }
-    
+
     
 }
+
+#endif
