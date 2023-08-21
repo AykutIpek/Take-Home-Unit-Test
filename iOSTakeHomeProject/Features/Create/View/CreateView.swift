@@ -8,10 +8,28 @@
 import SwiftUI
 
 struct CreateView: View {
+
+    
     @Environment (\.dismiss) private var dismiss
     @FocusState private var focusedField: Field?
-    @StateObject private var viewModel = CreateViewModel()
-    let successfulAction: () -> Void
+    @StateObject private var viewModel: CreateViewModel
+    private let successfulAction: () -> Void
+    
+    init(successfulAction: @escaping () -> Void) {
+        self.successfulAction = successfulAction
+        
+        #if DEBUG
+        if UITestingHelper.isUITesting {
+            let mock: NetworkingManagerProtocol = UITestingHelper.isCreateNetworkingSuccessful ? NetworkingManagerCreateSuccessMock() : NetworkingManagerCreateFailureMock()
+            _viewModel = StateObject(wrappedValue: CreateViewModel(networkingManager: mock))
+        } else {
+            _viewModel = StateObject(wrappedValue: CreateViewModel())
+        }
+        #else
+        _viewModel = StateObject(wrappedValue: CreateViewModel())
+        #endif
+        
+    }
     
     var body: some View {
         NavigationStack {
