@@ -57,5 +57,29 @@ final class CreateScreenFormValidationTests: XCTestCase {
         
         let lastnameTxtFields = app.textFields["lastNameTxtFields"]
         let jobTxtFields = app.textFields["jobTxtFields"]
+        
+        lastnameTxtFields.tap()
+        lastnameTxtFields.typeText("Ads")
+        
+        jobTxtFields.tap()
+        jobTxtFields.typeText("iOS Developer")
+        
+        let submitBtn = app.buttons["submitBtn"]
+        XCTAssertTrue(submitBtn.waitForExistence(timeout: 5), "There create button should be visible on the screen")
+        
+        submitBtn.tap()
+        
+        let alert = app.alerts.firstMatch
+        let alertBtn = alert.buttons.firstMatch
+        
+        XCTAssertTrue(alert.waitForExistence(timeout: 5), "There should be an alert on the screen")
+        XCTAssertTrue(alert.staticTexts["First name can't be empty"].exists)
+        XCTAssertEqual(alertBtn.label, "OK")
+        
+        alertBtn.tap()
+        
+        XCTAssertTrue(app.staticTexts["First name can't be empty"].exists)
+        
+        XCTAssertEqual(app.alerts.count, 0, "There should be no alerts on the screen")
     }
 }
