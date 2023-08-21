@@ -20,7 +20,7 @@ struct PeopleView: View {
         #if DEBUG
         
         if UITestingHelper.isUITesting {
-            let mock: NetworkingManagerProtocol = UITestingHelper.isPeopleNetworkingSuccessfuly ? NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
+            let mock: NetworkingManagerProtocol = UITestingHelper.isPeopleNetworkingSuccessful ? NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
             _viewModel = StateObject(wrappedValue: PeopleViewModel(networkingManager: mock))
         } else {
             _viewModel = StateObject(wrappedValue: PeopleViewModel())
@@ -134,6 +134,7 @@ private extension PeopleView {
                 .fontWeight(.bold)
         } 
         .disabled(viewModel.isLoading)
+        .accessibilityIdentifier("createBtn")
     }
     
     var background: some View {

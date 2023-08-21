@@ -34,6 +34,8 @@
 		E97D5AD12A8A6991001D73CF /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D5AD02A8A6991001D73CF /* EndPoint.swift */; };
 		E98A0BFA2A934B7A004CC4E7 /* DetailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0BF92A934B7A004CC4E7 /* DetailsUITests.swift */; };
 		E98A0BFC2A9358B0004CC4E7 /* DetailsFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0BFB2A9358B0004CC4E7 /* DetailsFailureUITests.swift */; };
+		E98A0BFF2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0BFE2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift */; };
+		E98A0C012A937378004CC4E7 /* CreateScreenFormValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0C002A937378004CC4E7 /* CreateScreenFormValidationTests.swift */; };
 		E9A2B44B2A87B92000B81873 /* iOSTakeHomeProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B44A2A87B92000B81873 /* iOSTakeHomeProjectApp.swift */; };
 		E9A2B44F2A87B92100B81873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B44E2A87B92100B81873 /* Assets.xcassets */; };
 		E9A2B4522A87B92100B81873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B4512A87B92100B81873 /* Preview Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		E97D5AD02A8A6991001D73CF /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		E98A0BF92A934B7A004CC4E7 /* DetailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUITests.swift; sourceTree = "<group>"; };
 		E98A0BFB2A9358B0004CC4E7 /* DetailsFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFailureUITests.swift; sourceTree = "<group>"; };
+		E98A0BFE2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenUIValidTests.swift; sourceTree = "<group>"; };
+		E98A0C002A937378004CC4E7 /* CreateScreenFormValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenFormValidationTests.swift; sourceTree = "<group>"; };
 		E9A2B4472A87B92000B81873 /* iOSTakeHomeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTakeHomeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A2B44A2A87B92000B81873 /* iOSTakeHomeProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTakeHomeProjectApp.swift; sourceTree = "<group>"; };
 		E9A2B44E2A87B92100B81873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -275,6 +279,15 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		E98A0BFD2A936194004CC4E7 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				E98A0BFE2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift */,
+				E98A0C002A937378004CC4E7 /* CreateScreenFormValidationTests.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
 		E9A2B43E2A87B91F00B81873 = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +347,7 @@
 		E9A2B4642A87B92100B81873 /* iOSTakeHomeProjectUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E98A0BFD2A936194004CC4E7 /* Create */,
 				E98A0BF82A934B6B004CC4E7 /* Details */,
 				E97291492A8F9A2A0066360A /* People */,
 			);
@@ -774,7 +788,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E98A0BFF2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift in Sources */,
 				E972914B2A8F9A480066360A /* PeopleScreenUITests.swift in Sources */,
+				E98A0C012A937378004CC4E7 /* CreateScreenFormValidationTests.swift in Sources */,
 				E98A0BFC2A9358B0004CC4E7 /* DetailsFailureUITests.swift in Sources */,
 				E98A0BFA2A934B7A004CC4E7 /* DetailsUITests.swift in Sources */,
 				E9292BAA2A8FBCCA00774DBA /* PeopleFailureUITests.swift in Sources */,

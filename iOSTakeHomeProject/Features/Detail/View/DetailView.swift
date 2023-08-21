@@ -18,7 +18,7 @@ struct DetailView: View {
         
         if UITestingHelper.isUITesting {
             
-            let mock: NetworkingManagerProtocol = UITestingHelper.isDetailsNetworkingSuccessfuly ? NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
+            let mock: NetworkingManagerProtocol = UITestingHelper.isDetailsNetworkingSuccessful ? NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
             _viewModel = StateObject(wrappedValue: DetailViewModel(networkingManager: mock))
             
         } else {

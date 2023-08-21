@@ -36,6 +36,8 @@ final class DetailsFailureUITests: XCTestCase {
         
         let gridItems = grid.buttons.containing(predicate)
         
+        gridItems.firstMatch.tap()
+        
         let alert = app.alerts.firstMatch
         
         XCTAssertTrue(alert.waitForExistence(timeout: 3), "There be an alert visible on the screen")

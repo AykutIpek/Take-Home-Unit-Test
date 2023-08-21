@@ -82,22 +82,30 @@ private extension CreateView {
             Text("Done")
                 .fontWeight(.semibold)
         }
+        .accessibilityIdentifier("doneBtn")
 
     }
     
     var firstName: some View {
         TextField("First Name", text: $viewModel.person.firstName)
             .focused($focusedField, equals: .firstName)
+            .accessibilityIdentifier("firstNameTxtField")
+
+        
     }
     
     var lastName: some View {
         TextField("Last Name", text: $viewModel.person.lastName)
             .focused($focusedField, equals: .lastName)
+            .accessibilityIdentifier("lastNameTxtField")
+
     }
     
     var job: some View {
         TextField("Job", text: $viewModel.person.job)
             .focused($focusedField, equals: .job)
+            .accessibilityIdentifier("jobTxtField")
+
     }
     
     var submit: some View {
@@ -108,5 +116,6 @@ private extension CreateView {
                 await viewModel.create()
             }
         }
+        .accessibilityIdentifier("submitBtn")
     }
 }
