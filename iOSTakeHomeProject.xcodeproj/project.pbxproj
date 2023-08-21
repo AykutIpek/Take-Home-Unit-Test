@@ -15,6 +15,8 @@
 		E9292BA72A8FB29E00774DBA /* CreateValidatorFailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E972913F2A8F895B0066360A /* CreateValidatorFailureMock.swift */; };
 		E9292BA82A8FB29E00774DBA /* CraeteValidatorSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E972913B2A8F87050066360A /* CraeteValidatorSuccessMock.swift */; };
 		E9292BAA2A8FBCCA00774DBA /* PeopleFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9292BA92A8FBCCA00774DBA /* PeopleFailureUITests.swift */; };
+		E92CB58C2A938EEA005CE29F /* JSONMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92CB58B2A938EE9005CE29F /* JSONMapperTests.swift */; };
+		E92CB58E2A939048005CE29F /* CreateFormValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92CB58D2A939048005CE29F /* CreateFormValidatorTests.swift */; };
 		E9516F2E2A89670700CCF832 /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F2D2A89670700CCF832 /* PeopleViewModel.swift */; };
 		E9516F302A89700E00CCF832 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F2F2A89700E00CCF832 /* DetailViewModel.swift */; };
 		E9516F322A8978B100CCF832 /* NewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9516F312A8978B100CCF832 /* NewPerson.swift */; };
@@ -82,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		E9292BA92A8FBCCA00774DBA /* PeopleFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleFailureUITests.swift; sourceTree = "<group>"; };
+		E92CB58B2A938EE9005CE29F /* JSONMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMapperTests.swift; sourceTree = "<group>"; };
+		E92CB58D2A939048005CE29F /* CreateFormValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormValidatorTests.swift; sourceTree = "<group>"; };
 		E9516F2D2A89670700CCF832 /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
 		E9516F2F2A89700E00CCF832 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E9516F312A8978B100CCF832 /* NewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPerson.swift; sourceTree = "<group>"; };
@@ -551,6 +555,7 @@
 		E9DCDF272A8E21170080E6E4 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				E92CB58B2A938EE9005CE29F /* JSONMapperTests.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -558,6 +563,7 @@
 		E9DCDF282A8E211F0080E6E4 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				E92CB58D2A939048005CE29F /* CreateFormValidatorTests.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -778,10 +784,12 @@
 			files = (
 				E97291442A8F8B230066360A /* CreateViewModelValidationFailureTests.swift in Sources */,
 				E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */,
+				E92CB58E2A939048005CE29F /* CreateFormValidatorTests.swift in Sources */,
 				E9DCDF392A8E978B0080E6E4 /* PeopleViewModelFailureTests.swift in Sources */,
 				E97291482A8F93780066360A /* CreateViewModelFailureTests.swift in Sources */,
 				E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */,
 				E9DCDF3B2A8E97C90080E6E4 /* NetworkingManagerUserResponseFailureMock.swift in Sources */,
+				E92CB58C2A938EEA005CE29F /* JSONMapperTests.swift in Sources */,
 				E97291352A8F74860066360A /* DetailsViewModelFailureTests.swift in Sources */,
 				E972913E2A8F87650066360A /* CreateViewModelSuccessTests.swift in Sources */,
 				E9DCDF372A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift in Sources */,
