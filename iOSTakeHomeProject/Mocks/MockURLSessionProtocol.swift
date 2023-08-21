@@ -7,6 +7,7 @@
 
 import Foundation
 
+#if DEBUG
 final class MockURLSessionProtocol: URLProtocol {
     
     static var loadingHandler: (() -> (HTTPURLResponse, Data?))?
@@ -38,3 +39,4 @@ final class MockURLSessionProtocol: URLProtocol {
         
     }
 }
+#endif

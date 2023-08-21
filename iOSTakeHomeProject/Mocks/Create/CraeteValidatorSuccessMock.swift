@@ -7,9 +7,10 @@
 
 import Foundation
 
-
+#if DEBUG
 struct CreateValidatorSuccessMock: CreateValidatorProtocol {
     func validate(_ person: iOSTakeHomeProject.NewPerson) throws {
         
     }
 }
+#endif

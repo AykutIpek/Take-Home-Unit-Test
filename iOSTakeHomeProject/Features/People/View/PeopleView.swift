@@ -20,7 +20,7 @@ struct PeopleView: View {
         #if DEBUG
         
         if UITestingHelper.isUITesting {
-            let mock: NetworkingManagerProtocol = UITestingHelper.isNetworkingSuccessfuly ? NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
+            let mock: NetworkingManagerProtocol = UITestingHelper.isPeopleNetworkingSuccessfuly ? NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
             _viewModel = StateObject(wrappedValue: PeopleViewModel(networkingManager: mock))
         } else {
             _viewModel = StateObject(wrappedValue: PeopleViewModel())
