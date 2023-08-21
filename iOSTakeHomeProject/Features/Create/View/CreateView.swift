@@ -8,10 +8,28 @@
 import SwiftUI
 
 struct CreateView: View {
+
+    
     @Environment (\.dismiss) private var dismiss
     @FocusState private var focusedField: Field?
-    @StateObject private var viewModel = CreateViewModel()
-    let successfulAction: () -> Void
+    @StateObject private var viewModel: CreateViewModel
+    private let successfulAction: () -> Void
+    
+    init(successfulAction: @escaping () -> Void) {
+        self.successfulAction = successfulAction
+        
+        #if DEBUG
+        if UITestingHelper.isUITesting {
+            let mock: NetworkingManagerProtocol = UITestingHelper.isCreateNetworkingSuccessful ? NetworkingManagerCreateSuccessMock() : NetworkingManagerCreateFailureMock()
+            _viewModel = StateObject(wrappedValue: CreateViewModel(networkingManager: mock))
+        } else {
+            _viewModel = StateObject(wrappedValue: CreateViewModel())
+        }
+        #else
+        _viewModel = StateObject(wrappedValue: CreateViewModel())
+        #endif
+        
+    }
     
     var body: some View {
         NavigationStack {
@@ -82,22 +100,30 @@ private extension CreateView {
             Text("Done")
                 .fontWeight(.semibold)
         }
+        .accessibilityIdentifier("doneBtn")
 
     }
     
     var firstName: some View {
         TextField("First Name", text: $viewModel.person.firstName)
             .focused($focusedField, equals: .firstName)
+            .accessibilityIdentifier("firstNameTxtField")
+
+        
     }
     
     var lastName: some View {
         TextField("Last Name", text: $viewModel.person.lastName)
             .focused($focusedField, equals: .lastName)
+            .accessibilityIdentifier("lastNameTxtField")
+
     }
     
     var job: some View {
         TextField("Job", text: $viewModel.person.job)
             .focused($focusedField, equals: .job)
+            .accessibilityIdentifier("jobTxtField")
+
     }
     
     var submit: some View {
@@ -108,5 +134,6 @@ private extension CreateView {
                 await viewModel.create()
             }
         }
+        .accessibilityIdentifier("submitBtn")
     }
 }

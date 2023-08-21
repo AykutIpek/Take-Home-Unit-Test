@@ -7,6 +7,7 @@
 
 import Foundation
 
+#if DEBUG
 final class NetworkingManagerCreateFailureMock: NetworkingManagerProtocol {
     func request<T>(session: URLSession, _ endpoint: iOSTakeHomeProject.EndPoint, type: T.Type) async throws -> T where T : Decodable, T : Encodable {
         return Data() as! T
@@ -18,3 +19,4 @@ final class NetworkingManagerCreateFailureMock: NetworkingManagerProtocol {
     
     
 }
+#endif
