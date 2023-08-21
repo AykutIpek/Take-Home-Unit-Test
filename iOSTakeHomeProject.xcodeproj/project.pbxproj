@@ -37,6 +37,7 @@
 		E98A0BFF2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0BFE2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift */; };
 		E98A0C012A937378004CC4E7 /* CreateScreenFormValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0C002A937378004CC4E7 /* CreateScreenFormValidationTests.swift */; };
 		E98A0C032A93806D004CC4E7 /* CreateFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0C022A93806D004CC4E7 /* CreateFailureUITests.swift */; };
+		E98A0C052A9385B6004CC4E7 /* CreateScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0C042A9385B6004CC4E7 /* CreateScreenUITests.swift */; };
 		E9A2B44B2A87B92000B81873 /* iOSTakeHomeProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B44A2A87B92000B81873 /* iOSTakeHomeProjectApp.swift */; };
 		E9A2B44F2A87B92100B81873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B44E2A87B92100B81873 /* Assets.xcassets */; };
 		E9A2B4522A87B92100B81873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B4512A87B92100B81873 /* Preview Assets.xcassets */; };
@@ -109,6 +110,7 @@
 		E98A0BFE2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenUIValidTests.swift; sourceTree = "<group>"; };
 		E98A0C002A937378004CC4E7 /* CreateScreenFormValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenFormValidationTests.swift; sourceTree = "<group>"; };
 		E98A0C022A93806D004CC4E7 /* CreateFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFailureUITests.swift; sourceTree = "<group>"; };
+		E98A0C042A9385B6004CC4E7 /* CreateScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenUITests.swift; sourceTree = "<group>"; };
 		E9A2B4472A87B92000B81873 /* iOSTakeHomeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTakeHomeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A2B44A2A87B92000B81873 /* iOSTakeHomeProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTakeHomeProjectApp.swift; sourceTree = "<group>"; };
 		E9A2B44E2A87B92100B81873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				E98A0BFE2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift */,
 				E98A0C002A937378004CC4E7 /* CreateScreenFormValidationTests.swift */,
 				E98A0C022A93806D004CC4E7 /* CreateFailureUITests.swift */,
+				E98A0C042A9385B6004CC4E7 /* CreateScreenUITests.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E98A0BFF2A9361C1004CC4E7 /* CreateScreenUIValidTests.swift in Sources */,
+				E98A0C052A9385B6004CC4E7 /* CreateScreenUITests.swift in Sources */,
 				E972914B2A8F9A480066360A /* PeopleScreenUITests.swift in Sources */,
 				E98A0C012A937378004CC4E7 /* CreateScreenFormValidationTests.swift in Sources */,
 				E98A0BFC2A9358B0004CC4E7 /* DetailsFailureUITests.swift in Sources */,
