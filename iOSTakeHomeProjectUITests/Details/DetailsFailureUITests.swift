@@ -29,17 +29,15 @@ final class DetailsFailureUITests: XCTestCase {
     
     func test_alert_is_shown_when_screen_fails_to_loads() {
         let grid = app.otherElements["peopleGrid"]
-        
-        XCTAssertTrue(grid.waitForExistence(timeout: 5), "The grid should exists on the screen")
+        XCTAssertTrue(grid.waitForExistence(timeout: 5), "The lazyvgrid should exist on the screen")
         
         let predicate = NSPredicate(format: "identifier CONTAINS 'item_'")
-        
         let gridItems = grid.buttons.containing(predicate)
         
         gridItems.firstMatch.tap()
         
-        let alert = app.alerts.firstMatch
         
+        let alert = app.alerts.firstMatch
         XCTAssertTrue(alert.waitForExistence(timeout: 3), "There be an alert visible on the screen")
         
         XCTAssertTrue(alert.staticTexts["URL isn't valid"].exists)
@@ -49,10 +47,10 @@ final class DetailsFailureUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["First Name"].exists)
         XCTAssertTrue(app.staticTexts["Last Name"].exists)
         XCTAssertTrue(app.staticTexts["Email"].exists)
-        
+
         alert.buttons["OK"].tap()
         
-        let textPlaceholderPredicate = NSPredicate(format: "identifier CONTAINS 'item_'")
+        let textPlaceholderPredicate = NSPredicate(format: "label CONTAINS '-'")
         let placeholderItems = app.staticTexts.containing(textPlaceholderPredicate)
         
         XCTAssertEqual(placeholderItems.count, 3, "There should 3 placeholder items on the screen")

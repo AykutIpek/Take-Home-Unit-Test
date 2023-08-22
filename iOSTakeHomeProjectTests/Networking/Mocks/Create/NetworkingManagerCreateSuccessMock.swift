@@ -5,6 +5,7 @@
 //  Created by aykut ipek on 18.08.2023.
 //
 
+#if DEBUG
 import Foundation
 
 final class NetworkingManagerCreateSuccessMock: NetworkingManagerProtocol {
@@ -18,3 +19,4 @@ final class NetworkingManagerCreateSuccessMock: NetworkingManagerProtocol {
     
     
 }
+#endif
