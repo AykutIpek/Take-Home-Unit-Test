@@ -60,11 +60,7 @@ struct DetailView: View {
                 await viewModel.fetchDetails(for: userId)
             }
         }
-        .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
-            Button("Retry") {
-//                viewModel.fetchDetails(for: userId)
-            }
-        }
+        .alert(isPresented: $viewModel.hasError, error: viewModel.error) {}
     }
 }
 
