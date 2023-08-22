@@ -39,7 +39,7 @@ final class CreateScreenUIValidTests: XCTestCase {
     }
     
     func test_when_done_is_tapped_create_view_is_dismissed() {
-        let createBtn = app.buttons["craeteBtn"]
+        let createBtn = app.buttons["createBtn"]
         XCTAssertTrue(createBtn.waitForExistence(timeout: 5), "There create button should be visible on the screen")
         
         createBtn.tap()
