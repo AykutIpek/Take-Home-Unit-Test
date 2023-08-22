@@ -10,7 +10,7 @@ import Foundation
 
 #if DEBUG
 struct CreateValidatorFailureMock: CreateValidatorProtocol {
-    func validate(_ person: iOSTakeHomeProject.NewPerson) throws {
+    func validate(_ person: NewPerson) throws {
         throw CreateValidator.CreateValidotorError.invalidFirstName
     }
 

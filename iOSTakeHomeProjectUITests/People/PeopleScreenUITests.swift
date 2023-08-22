@@ -28,7 +28,7 @@ final class PeopleScreenUITests: XCTestCase {
         XCTAssertTrue(grid.waitForExistence(timeout: 5), "The people lazygrid should be visible")
 
         let predicate = NSPredicate(format: "identifier CONTAINS 'item_'")
-        let gridItems = grid.buttons.otherElements.containing(predicate)
+        let gridItems = grid.buttons.containing(predicate)
         XCTAssertEqual(gridItems.count, 6, "There should be 6 items on the screen")
 
         XCTAssertTrue(gridItems.staticTexts["#1"].exists)
@@ -47,6 +47,6 @@ final class PeopleScreenUITests: XCTestCase {
         XCTAssertTrue(gridItems.staticTexts["Janet Weaver"].exists)
 
         XCTAssertTrue(gridItems.staticTexts["#6"].exists)
-        XCTAssertTrue(gridItems.staticTexts["Charles Ramos"].exists)
+        XCTAssertTrue(gridItems.staticTexts["Tracey Ramos"].exists)
     }
 }

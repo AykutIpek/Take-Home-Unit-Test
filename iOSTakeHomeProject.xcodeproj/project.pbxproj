@@ -40,6 +40,8 @@
 		E98A0C012A937378004CC4E7 /* CreateScreenFormValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0C002A937378004CC4E7 /* CreateScreenFormValidationTests.swift */; };
 		E98A0C032A93806D004CC4E7 /* CreateFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0C022A93806D004CC4E7 /* CreateFailureUITests.swift */; };
 		E98A0C052A9385B6004CC4E7 /* CreateScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A0C042A9385B6004CC4E7 /* CreateScreenUITests.swift */; };
+		E994E6B72A94BD3B00CB196C /* NetworkingManagerUserResponseSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF362A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift */; };
+		E994E6B82A94BD3B00CB196C /* NetworkingManagerUserResponseFailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF3A2A8E97C90080E6E4 /* NetworkingManagerUserResponseFailureMock.swift */; };
 		E9A2B44B2A87B92000B81873 /* iOSTakeHomeProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B44A2A87B92000B81873 /* iOSTakeHomeProjectApp.swift */; };
 		E9A2B44F2A87B92100B81873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B44E2A87B92100B81873 /* Assets.xcassets */; };
 		E9A2B4522A87B92100B81873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9A2B4512A87B92100B81873 /* Preview Assets.xcassets */; };
@@ -58,9 +60,7 @@
 		E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */; };
 		E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */; };
 		E9DCDF352A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF342A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift */; };
-		E9DCDF372A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF362A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift */; };
 		E9DCDF392A8E978B0080E6E4 /* PeopleViewModelFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF382A8E978B0080E6E4 /* PeopleViewModelFailureTests.swift */; };
-		E9DCDF3B2A8E97C90080E6E4 /* NetworkingManagerUserResponseFailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF3A2A8E97C90080E6E4 /* NetworkingManagerUserResponseFailureMock.swift */; };
 		E9E965A22A891A7700ECADEE /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A12A891A7700ECADEE /* CreateView.swift */; };
 		E9E965A52A8928A200ECADEE /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E965A42A8928A200ECADEE /* NetworkingManager.swift */; };
 /* End PBXBuildFile section */
@@ -772,7 +772,9 @@
 				E9E965A22A891A7700ECADEE /* CreateView.swift in Sources */,
 				E97D5AC72A8A4DC0001D73CF /* CreateValidator.swift in Sources */,
 				E9516F302A89700E00CCF832 /* DetailViewModel.swift in Sources */,
+				E994E6B82A94BD3B00CB196C /* NetworkingManagerUserResponseFailureMock.swift in Sources */,
 				E97D5AD12A8A6991001D73CF /* EndPoint.swift in Sources */,
+				E994E6B72A94BD3B00CB196C /* NetworkingManagerUserResponseSuccessMock.swift in Sources */,
 				E97D5ACA2A8A6127001D73CF /* HapticsManager.swift in Sources */,
 				E9A2B4952A87CE8B00B81873 /* Models.swift in Sources */,
 			);
@@ -788,11 +790,9 @@
 				E9DCDF392A8E978B0080E6E4 /* PeopleViewModelFailureTests.swift in Sources */,
 				E97291482A8F93780066360A /* CreateViewModelFailureTests.swift in Sources */,
 				E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */,
-				E9DCDF3B2A8E97C90080E6E4 /* NetworkingManagerUserResponseFailureMock.swift in Sources */,
 				E92CB58C2A938EEA005CE29F /* JSONMapperTests.swift in Sources */,
 				E97291352A8F74860066360A /* DetailsViewModelFailureTests.swift in Sources */,
 				E972913E2A8F87650066360A /* CreateViewModelSuccessTests.swift in Sources */,
-				E9DCDF372A8E76A10080E6E4 /* NetworkingManagerUserResponseSuccessMock.swift in Sources */,
 				E97291332A8F72150066360A /* DetailsViewModelSuccessTests.swift in Sources */,
 				E9DCDF352A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift in Sources */,
 			);

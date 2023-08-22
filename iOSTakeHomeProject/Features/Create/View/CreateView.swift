@@ -107,7 +107,7 @@ private extension CreateView {
     var firstName: some View {
         TextField("First Name", text: $viewModel.person.firstName)
             .focused($focusedField, equals: .firstName)
-            .accessibilityIdentifier("firstNameTxtField")
+            .accessibilityIdentifier("firstNameTxtFields")
 
         
     }
@@ -115,14 +115,14 @@ private extension CreateView {
     var lastName: some View {
         TextField("Last Name", text: $viewModel.person.lastName)
             .focused($focusedField, equals: .lastName)
-            .accessibilityIdentifier("lastNameTxtField")
+            .accessibilityIdentifier("lastNameTxtFields")
 
     }
     
     var job: some View {
         TextField("Job", text: $viewModel.person.job)
             .focused($focusedField, equals: .job)
-            .accessibilityIdentifier("jobTxtField")
+            .accessibilityIdentifier("jobTxtFields")
 
     }
     
