@@ -47,7 +47,7 @@ final class DetailsUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Bluth"].exists)
         XCTAssertTrue(app.staticTexts["Email"].exists)
         XCTAssertTrue(app.staticTexts["george.bluth@reqres.in"].exists)
-        XCTAssertTrue(app.staticTexts["To keep ReqRes free, contribution towards server costs are appreciated"].exists)
+        XCTAssertTrue(app.staticTexts["To keep ReqRes free, contributions towards server costs are appreciated!"].exists)
         XCTAssertTrue(app.staticTexts["https://reqres.in/#support-heading"].exists)
     }
     
