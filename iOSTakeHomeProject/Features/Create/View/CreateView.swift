@@ -54,6 +54,8 @@ struct CreateView: View {
             }
             .disabled(viewModel.state == .submitting)
             .navigationTitle("Create")
+            .alert(isPresented: $viewModel.hasError,
+                               error: viewModel.error) { }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     done

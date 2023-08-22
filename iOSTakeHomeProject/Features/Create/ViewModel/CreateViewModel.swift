@@ -39,13 +39,14 @@ final class CreateViewModel: ObservableObject {
             state = .successful
         } catch {
             self.hasError = true
+            self.state = .unsuccessful
             
             switch error {
             case is NetworkingManager.NetworkingError:
-                self.state = .unsuccessful
+    
                 self.error = .networking(error: error as! NetworkingManager.NetworkingError)
             case is CreateValidator.CreateValidotorError:
-                self.state = .unsuccessful
+//                self.state = .unsuccessful
                 self.error = .validation(error: error as! CreateValidator.CreateValidotorError)
             default:
                 self.error = .system(error: error)

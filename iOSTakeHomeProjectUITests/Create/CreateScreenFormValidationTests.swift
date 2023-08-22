@@ -36,11 +36,11 @@ final class CreateScreenFormValidationTests: XCTestCase {
         
         let alert = app.alerts.firstMatch
         let alertBtn = alert.buttons.firstMatch
-        
+
         XCTAssertTrue(alert.waitForExistence(timeout: 5), "There should be an alert on the screen")
         XCTAssertTrue(alert.staticTexts["First name can't be empty"].exists)
         XCTAssertEqual(alertBtn.label, "OK")
-        
+
         alertBtn.tap()
         
         XCTAssertTrue(app.staticTexts["First name can't be empty"].exists)
@@ -71,11 +71,11 @@ final class CreateScreenFormValidationTests: XCTestCase {
         
         let alert = app.alerts.firstMatch
         let alertBtn = alert.buttons.firstMatch
-        
+
         XCTAssertTrue(alert.waitForExistence(timeout: 5), "There should be an alert on the screen")
         XCTAssertTrue(alert.staticTexts["First name can't be empty"].exists)
         XCTAssertEqual(alertBtn.label, "OK")
-        
+
         alertBtn.tap()
         
         XCTAssertTrue(app.staticTexts["First name can't be empty"].exists)
@@ -106,11 +106,11 @@ final class CreateScreenFormValidationTests: XCTestCase {
         
         let alert = app.alerts.firstMatch
         let alertBtn = alert.buttons.firstMatch
-        
+
         XCTAssertTrue(alert.waitForExistence(timeout: 5), "There should be an alert on the screen")
         XCTAssertTrue(alert.staticTexts["Last name can't be empty"].exists)
         XCTAssertEqual(alertBtn.label, "OK")
-        
+
         alertBtn.tap()
         
         XCTAssertTrue(app.staticTexts["Last name can't be empty"].exists)
@@ -145,7 +145,7 @@ final class CreateScreenFormValidationTests: XCTestCase {
         XCTAssertTrue(alert.waitForExistence(timeout: 5), "There should be an alert on the screen")
         XCTAssertTrue(alert.staticTexts["Job can't be empty"].exists)
         XCTAssertEqual(alertBtn.label, "OK")
-        
+
         alertBtn.tap()
         
         XCTAssertTrue(app.staticTexts["Job can't be empty"].exists)
