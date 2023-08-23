@@ -24,6 +24,6 @@ https://reqres.in
 
 ## Ekran Görüntüleri
 
-<img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS1.imageset/Ekran%20Resmi%202023-08-23%2014.39.01.png?raw=true" width="450"><img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS2.imageset/Ekran%20Resmi%202023-08-23%2014.39.14.png?raw=true" width="450">
+<img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS1.imageset/Ekran%20Resmi%202023-08-23%2014.39.01.png?raw=true" width="420"><img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS2.imageset/Ekran%20Resmi%202023-08-23%2014.39.14.png?raw=true" width="420">
 
-<img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS3.imageset/Ekran%20Resmi%202023-08-23%2014.39.43.png?raw=true" width="450"><img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS4.imageset/Ekran%20Resmi%202023-08-23%2014.40.24.png?raw=true" width="450">
+<img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS3.imageset/Ekran%20Resmi%202023-08-23%2014.39.43.png?raw=true" width="420"><img src="https://github.com/AykutIpek/TakeHome/blob/main/iOSTakeHomeProject/Assets.xcassets/ScreenShots/SS4.imageset/Ekran%20Resmi%202023-08-23%2014.40.24.png?raw=true" width="420">
