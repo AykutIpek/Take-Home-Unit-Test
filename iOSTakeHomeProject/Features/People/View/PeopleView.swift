@@ -61,6 +61,9 @@ struct PeopleView: View {
                         .padding()
                         .accessibilityIdentifier("peopleGrid")
                     }
+                    .refreshable {
+                        await viewModel.fetchUser()
+                    }
                     .overlay(alignment: .bottom) {
                         if viewModel.isFetching {
                             ProgressView()
