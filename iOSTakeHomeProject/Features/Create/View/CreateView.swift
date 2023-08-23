@@ -32,7 +32,7 @@ struct CreateView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        
             Form {
                 
                 Section {
@@ -72,7 +72,7 @@ struct CreateView: View {
                     ProgressView()
                 }
             }
-        }
+            .embedInNavigation()
     }
 }
 
