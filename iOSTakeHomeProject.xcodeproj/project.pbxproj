@@ -57,6 +57,7 @@
 		E9A2B49C2A87EBD400B81873 /* PersonItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B49B2A87EBD400B81873 /* PersonItemView.swift */; };
 		E9A2B49F2A87F94500B81873 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B49E2A87F94500B81873 /* PillView.swift */; };
 		E9A2B4A12A8811AD00B81873 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2B4A02A8811AD00B81873 /* DetailView.swift */; };
+		E9B95E822A96203400213651 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B95E812A96203400213651 /* View+Navigation.swift */; };
 		E9DCDF2C2A8E217D0080E6E4 /* NetworkingEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */; };
 		E9DCDF322A8E4D2B0080E6E4 /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */; };
 		E9DCDF352A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DCDF342A8E75FD0080E6E4 /* PeopleViewModelSuccessTests.swift */; };
@@ -133,6 +134,7 @@
 		E9A2B49B2A87EBD400B81873 /* PersonItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonItemView.swift; sourceTree = "<group>"; };
 		E9A2B49E2A87F94500B81873 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		E9A2B4A02A8811AD00B81873 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E9B95E812A96203400213651 /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		E9DCDF2B2A8E217D0080E6E4 /* NetworkingEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEndpointTests.swift; sourceTree = "<group>"; };
 		E9DCDF2E2A8E46490080E6E4 /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
 		E9DCDF312A8E4D2B0080E6E4 /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 		E9A2B4792A87C66600B81873 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E9B95E802A961E6E00213651 /* Extensions */,
 				E97D5ACD2A8A646A001D73CF /* UserDefaults */,
 				E97D5AC82A8A611D001D73CF /* Haptics */,
 				E9E965A32A89288F00ECADEE /* API */,
@@ -550,6 +553,14 @@
 				E97D5AC32A8A4396001D73CF /* CheckmarkPopover.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E9B95E802A961E6E00213651 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9B95E812A96203400213651 /* View+Navigation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E9DCDF272A8E21170080E6E4 /* Mapper */ = {
@@ -766,6 +777,7 @@
 				E9292BA82A8FB29E00774DBA /* CraeteValidatorSuccessMock.swift in Sources */,
 				E9516F322A8978B100CCF832 /* NewPerson.swift in Sources */,
 				E97D5AC42A8A4396001D73CF /* CheckmarkPopover.swift in Sources */,
+				E9B95E822A96203400213651 /* View+Navigation.swift in Sources */,
 				E9516F2E2A89670700CCF832 /* PeopleViewModel.swift in Sources */,
 				E9292BA32A8FB23F00774DBA /* NetworkingManagerUserDetailsResponseSuccessMock.swift in Sources */,
 				E97D5ACF2A8A6498001D73CF /* UserDefaultKeys.swift in Sources */,

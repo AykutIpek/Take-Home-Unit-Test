@@ -17,7 +17,7 @@ struct PeopleView: View {
     @State private var hasAppeared = false
     
     init() {
-        #if DEBUG
+#if DEBUG
         
         if UITestingHelper.isUITesting {
             let mock: NetworkingManagerProtocol = UITestingHelper.isPeopleNetworkingSuccessful ? NetworkingManagerUserResponseSuccessMock() : NetworkingManagerUserResponseFailureMock()
@@ -25,97 +25,94 @@ struct PeopleView: View {
         } else {
             _viewModel = StateObject(wrappedValue: PeopleViewModel())
         }
-        #else
+#else
         _viewModel = StateObject(wrappedValue: PeopleViewModel())
-        #endif
+#endif
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                background
-                
-                if viewModel.isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .mint))
-                            .scaleEffect(2.0, anchor: .center)
-                } else {
-                    ScrollView {
-                        LazyVGrid(columns: columns, spacing: 16) {
-                            ForEach(viewModel.users, id: \.id) { user in
-                                NavigationLink {
-                                    DetailView(userId: user.id)
-                                } label: {
-                                    PersonItemView(user: user)
-                                        .accessibilityIdentifier("item_\(user.id)")
-                                        .task {
-                                            if viewModel.hasReachedEnd(of: user) && !viewModel.isFetching {
-                                                await viewModel.fetchNextSetOfUsers()
-                                            }
+        ZStack {
+            background
+            
+            if viewModel.isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .mint))
+                    .scaleEffect(2.0, anchor: .center)
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(viewModel.users, id: \.id) { user in
+                            NavigationLink {
+                                DetailView(userId: user.id)
+                            } label: {
+                                PersonItemView(user: user)
+                                    .accessibilityIdentifier("item_\(user.id)")
+                                    .task {
+                                        if viewModel.hasReachedEnd(of: user) && !viewModel.isFetching {
+                                            await viewModel.fetchNextSetOfUsers()
                                         }
-                                }
-                                
-
+                                    }
                             }
                         }
-                        .padding()
-                        .accessibilityIdentifier("peopleGrid")
                     }
-                    .refreshable {
-                        await viewModel.fetchUser()
-                    }
-                    .overlay(alignment: .bottom) {
-                        if viewModel.isFetching {
-                            ProgressView()
-                        }
-                    }
+                    .padding()
+                    .accessibilityIdentifier("peopleGrid")
                 }
-            }
-            .navigationTitle("People")
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    create
-                    
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    refresh
-                }
-            }
-            .task {
-                if !hasAppeared {
+                .refreshable {
                     await viewModel.fetchUser()
-                    hasAppeared = true
                 }
-            }
-            .sheet(isPresented: $shouldShowCreate) {
-                CreateView {
-                    haptic(.success)
-                    withAnimation(.spring().delay(0.25)) {
-                        self.sholudShowSuccess.toggle()
+                .overlay(alignment: .bottom) {
+                    if viewModel.isFetching {
+                        ProgressView()
                     }
-                }
-            }
-            .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
-                Button("Retry") {
-                    Task {
-                        await viewModel.fetchUser()
-                    }
-                }
-            }
-            .overlay {
-                if sholudShowSuccess {
-                    CheckmarkPopover()
-                        .transition(.scale.combined(with: .opacity))
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                withAnimation(.spring()){
-                                    self.sholudShowSuccess.toggle()
-                                }
-                            }
-                        }
                 }
             }
         }
+        .navigationTitle("People")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                create
+                
+            }
+            ToolbarItem(placement: .navigationBarLeading) {
+                refresh
+            }
+        }
+        .task {
+            if !hasAppeared {
+                await viewModel.fetchUser()
+                hasAppeared = true
+            }
+        }
+        .sheet(isPresented: $shouldShowCreate) {
+            CreateView {
+                haptic(.success)
+                withAnimation(.spring().delay(0.25)) {
+                    self.sholudShowSuccess.toggle()
+                }
+            }
+        }
+        .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
+            Button("Retry") {
+                Task {
+                    await viewModel.fetchUser()
+                }
+            }
+        }
+        .overlay {
+            if sholudShowSuccess {
+                CheckmarkPopover()
+                    .transition(.scale.combined(with: .opacity))
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation(.spring()){
+                                self.sholudShowSuccess.toggle()
+                            }
+                        }
+                    }
+            }
+        }
+        .embedInNavigation()
     }
 }
 
@@ -135,7 +132,7 @@ private extension PeopleView {
             Image(systemName: Symbols.plus.rawValue)
                 .font(.system(.headline, design: .rounded))
                 .fontWeight(.bold)
-        } 
+        }
         .disabled(viewModel.isLoading)
         .accessibilityIdentifier("createBtn")
     }
