@@ -71,9 +71,8 @@ struct DetailView_Previews: PreviewProvider {
         return users.data.first!.id
     }
     static var previews: some View {
-        NavigationView {
             DetailView(userId: previewUserId)
-        }
+            .embedInNavigation()
     }
 }
 
